@@ -19,12 +19,13 @@ function debounce(func, wait = 20, immediate = true) {
 
   function checkSlide() {
       //console.log(e);
-      console.log(window.scrollY + window.innerHeight);
+      //console.log(window.scrollY + window.innerHeight);
       sliderImages.forEach(sliderImage => {
           // window height + scroll pixels minus half of the image = start sliding in
+          // slideInAt keeps changing for each image as we scroll
           const slideInAt = (window.scrollY + window.innerHeight) - sliderImage.height / 2;
           // figure out where the bottom of img is
-          // offsetTop means how far it is from the window top
+          // offsetTop means how far it is from the window top, it's a fixed number
           const imageBottom = sliderImage.offsetTop + sliderImage.height; 
           const isHalfShown = slideInAt > sliderImage.offsetTop;
           const isNotScrolledPast = window.scrollY < imageBottom;
